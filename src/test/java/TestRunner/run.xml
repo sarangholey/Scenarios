@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name ="smoke" thread.count="2" parallel="classes">
+	<test name="FetchPrices">
+		<classes>
+				<class name ="scn_1.FetchPrices"></class>
+		</classes>
+	</test>
+</suite>
