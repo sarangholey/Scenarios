@@ -22,7 +22,6 @@ import cucumber.api.java.en.When;
 
 public class StepDefScn1 extends TestBase_1 {
 
-	//private By mobile_cost=By.className("_1vC4OE");
 	TestDI di;
 	public StepDefScn1(TestDI di){
 		this.di=di;
@@ -30,7 +29,6 @@ public class StepDefScn1 extends TestBase_1 {
 	WebDriver driver ;
 	Scenario scn;
 	
-
 	@Given("I have browser open and url is navigated and validate the title")
 	public void i_have_browser_open_and_url_is_navigated_and_validate_the_title() {
 		driver = new ChromeDriver();
@@ -72,6 +70,5 @@ public class StepDefScn1 extends TestBase_1 {
 		di.getDriver().quit();
 		scn.write("Browser is Closed");
 	}
-
 
 }

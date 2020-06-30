@@ -15,8 +15,7 @@ import cucumber.api.Scenario;
 public class PageObjectModel extends Util {
 
 	Scenario scn;
-
-	private By search_box=By.name("q");
+    private By search_box=By.name("q");
 	private By search_button=By.xpath("//button[@class='vh79eN']");
 	private By login_pop_up=By.xpath("//button[@class='_2AkmmA _29YdH8']");
 	private By mobile_cost=By.xpath("//div[@class='_1HmYoV hCUpcT']//div[@class='_1vC4OE']");

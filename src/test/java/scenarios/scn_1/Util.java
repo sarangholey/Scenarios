@@ -38,11 +38,5 @@ public class Util {
 		boolean b = driver.findElement(by).isDisplayed();
 		return b;
 	}
-	
-	public List<WebElement> getListOfWebElements(By by){
-		WebDriverWait wait = new WebDriverWait(driver, 60);
-		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
-		return element.findElements(by);
-	}
-	
+		
 }
