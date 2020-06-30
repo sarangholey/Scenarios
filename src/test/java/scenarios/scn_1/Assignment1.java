@@ -11,13 +11,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Assignment1 {
-	WebDriver driver;
-	String url="https://www.flipkart.com/";
-	String title="Online Shopping Site for Mobiles, Electronics, Furniture, Grocery, Lifestyle, Books & More. Best Offers!";
-	int add=0;
-	@Test
-	public void MethodAssignment1() throws InterruptedException {
-	WebDriver driver=new ChromeDriver();
+    WebDriver driver;
+    String url="https://www.flipkart.com/";
+    String title="Online Shopping Site for Mobiles, Electronics, Furniture, Grocery, Lifestyle, Books & More. Best Offers!";
+    int add=0;
+    @Test
+    public void MethodAssignment1() throws InterruptedException {
+    WebDriver driver=new ChromeDriver();
     driver.get(url);
     driver.manage().window().maximize();
     Assert.assertEquals(title,driver.getTitle());
@@ -35,7 +35,7 @@ public class Assignment1 {
     driver.findElement(By.xpath("//button[@class='vh79eN']")).click();
     driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);				
 
-    List<WebElement>Prices=driver.findElements(By.className("_1vC4OE"));
+    List<WebElement>Prices=driver.findElements(By.xpath("//div[@class='_1HmYoV _35HD7C']//div[@class='_1vC4OE']"));
     int n=Prices.size();	
     System.out.println("TotalProduct: "+n);
     int i=0;
