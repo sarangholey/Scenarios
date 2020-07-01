@@ -21,7 +21,6 @@ public class Assignment1 {
     driver.manage().window().maximize();
     Assert.assertEquals(title,driver.getTitle());
     System.out.println("Page title is: "+driver.getTitle());
-    driver.manage().window().maximize();
     
     driver.findElement(By.xpath("//button[@class='_2AkmmA _29YdH8']")).click();	
     Thread.sleep(4000);
