@@ -4,47 +4,67 @@
   <artifactId>scenarios</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   
-  
-	<properties>
-		<cucumber.version>4.2.0</cucumber.version>
+  <properties>
+<cucumber.version>4.2.0</cucumber.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
+	
+	
+		<build>
+		<resources>
+		<resource>
+		
+		<directory>src/main/resources </directory>
+		<filtering> true</filtering>
+			</resource>
+		</resources>
+		<plugins>
+   
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.0.0-M4</version>
+        <configuration>
+          <suiteXmlFiles>
+            <suiteXmlFile>testng.xml</suiteXmlFile>
+          </suiteXmlFiles>
+        </configuration>
+      </plugin>
+   
+</plugins>
+		
+		</build>
 
-	<profiles>
 
-		<profile>
-			<id>run-api</id>
-			<properties>
-				<cucumber.options>--tags "@api"</cucumber.options>
-			</properties>
-		</profile>
 
-		<profile>
-			<id>run-ui</id>
-			<properties>
-				<cucumber.options>--tags "@ui"</cucumber.options>
-			</properties>
-		</profile>
-
-	</profiles>
-	<dependencies>
-
-		<!-- For API automation -->
-		<dependency>
-			<groupId>io.rest-assured</groupId>
-			<artifactId>rest-assured</artifactId>
-			<version>4.1.2</version>
-			<scope>test</scope>
-		</dependency>
-
+		<dependencies>
+		
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.apache.maven.shared/file-management -->
+<dependency>
+    <groupId>org.apache.maven.shared</groupId>
+    <artifactId>file-management</artifactId>
+    <version>3.0.0</version>
+</dependency>
+		
+		
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<version>4.1.2</version>
+			<scope>test</scope>
+		</dependency>
+		
+		
+		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
 
 		<dependency>
 			<groupId>io.cucumber</groupId>
@@ -52,15 +72,15 @@
 			<version>${cucumber.version}</version>
 			<scope>test</scope>
 		</dependency>
-
+		
 		<dependency>
+		
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-junit</artifactId>
 			<version>${cucumber.version}</version>
 			<scope>test</scope>
 		</dependency>
-
-		<!-- For dependency Injection -->
+		
 		<dependency>
 			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-picocontainer</artifactId>
@@ -73,7 +93,21 @@
 			<artifactId>selenium-java</artifactId>
 			<version>3.141.59</version>
 		</dependency>
-
+		<!-- https://mvnrepository.com/artifact/log4j/log4j -->
+<dependency>
+    <groupId>log4j</groupId>
+    <artifactId>log4j</artifactId>
+    <version>1.2.17</version>
+</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+<dependency>
+    <groupId>org.testng</groupId>
+    <artifactId>testng</artifactId>
+    <version>7.1.0</version>
+    <scope>test</scope>
+</dependency>
+		
 		<!-- For Extent Reports -->
 		<!-- Extent Report Adapter for Cucumber -->
 		<dependency>
@@ -103,35 +137,7 @@
 			<artifactId>mongo-java-driver</artifactId>
 			<version>3.10.2</version>
 		</dependency>
-
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-api</artifactId>
-			<version>2.13.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.logging.log4j</groupId>
-			<artifactId>log4j-core</artifactId>
-			<version>2.13.1</version>
-		</dependency>
-
-
+		
 	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>3.0.0-M1</version>
-				<configuration>
-					<systemPropertyVariables>
-						<cucumber.options>${cucumber.options}</cucumber.options>
-					</systemPropertyVariables>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
-	<!--<parallel>methods</parallel> <threadCount>4</threadCount> <perCoreThreadCount>false</perCoreThreadCount> 
-		<useUnlimitedThreads>true</useUnlimitedThreads> <argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine> -->
-  
-</project>
+		
+	</project>
