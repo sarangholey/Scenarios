@@ -10,20 +10,20 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Assignment1 {
-	WebDriver driver;
-	String url="https://www.flipkart.com/";
-	String title="Online Shopping Site for Mobiles, Electronics, Furniture, Grocery, Lifestyle, Books & More. Best Offers!";
-	int add=0;
-	@Test
-	public void MethodAssignment1() throws InterruptedException {
-	WebDriver driver=new ChromeDriver();
+    WebDriver driver;
+    String url="https://www.flipkart.com/";
+    String title="Online Shopping Site for Mobiles, Electronics, Furniture, Grocery, Lifestyle, Books & More. Best Offers!";
+    int add=0;
+    @Test
+    public void MethodAssignment1() throws InterruptedException {
+    WebDriver driver=new ChromeDriver();
     driver.get(url);
     driver.manage().window().maximize();
     Assert.assertEquals(title,driver.getTitle());
     System.out.println("Page title is: "+driver.getTitle());
     driver.manage().window().maximize();
     
-	driver.findElement(By.xpath("//button[@class='_2AkmmA _29YdH8']")).click();	
+    driver.findElement(By.xpath("//button[@class='_2AkmmA _29YdH8']")).click();	
     Thread.sleep(4000);
 	
     WebElement SearchBox =driver.findElement(By.xpath("//input[@class='LM6RPg']"));
