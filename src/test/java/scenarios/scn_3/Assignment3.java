@@ -62,6 +62,7 @@ public class Assignment3 {
     Thread.sleep(3000);
     WebElement HigherPriceProduct=driver.findElement(By.xpath("//div[text()='Samsung Galaxy A8 Plus (Gold, 64 GB)']"));
     WebElement MaxPriceOfMobile=driver.findElement(By.xpath("//div[text()='₹30,000']"));
-    System.out.println("HigherPriceMobile Name is: "+HigherPriceProduct.getText());ystem.out.println("MaxPriceOfMobile is: "+MaxPriceOfMobile.getText());
+    System.out.println("HigherPriceMobile Name is: "+HigherPriceProduct.getText());
+    System.out.println("MaxPriceOfMobile is: "+MaxPriceOfMobile.getText());
     }
 }
