@@ -10,21 +10,21 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
 public class Assignment3 {
-	WebDriver driver;
-	String url="https://www.flipkart.com/";
-	String title="Online Shopping Site for Mobiles, Electronics, Furniture, Grocery, Lifestyle, Books & More. Best Offers!";
-	String Min="10000";
-	String Max="30000";
-	@Test
-	public void MethodAssignment2() throws InterruptedException {
-	WebDriver driver=new ChromeDriver();
+    WebDriver driver;
+    String url="https://www.flipkart.com/";
+    String title="Online Shopping Site for Mobiles, Electronics, Furniture, Grocery, Lifestyle, Books & More. Best Offers!";
+    String Min="10000";
+    String Max="30000";
+    @Test
+    public void MethodAssignment3() throws InterruptedException {
+    WebDriver driver=new ChromeDriver();
     driver.get(url);
     driver.manage().window().maximize();
     Assert.assertEquals(title,driver.getTitle());
     System.out.println("Page title is: "+driver.getTitle());
     driver.manage().window().maximize();
     
-	driver.findElement(By.xpath("//button[@class='_2AkmmA _29YdH8']")).click();	
+    driver.findElement(By.xpath("//button[@class='_2AkmmA _29YdH8']")).click();	
 	
     WebElement SearchBox =driver.findElement(By.xpath("//input[@class='LM6RPg']"));
     System.out.println("SearchBox is displays: "+SearchBox.isDisplayed());
@@ -64,7 +64,6 @@ public class Assignment3 {
     Thread.sleep(3000);
     WebElement HigherPriceProduct=driver.findElement(By.xpath("//div[text()='Samsung Galaxy A8 Plus (Gold, 64 GB)']"));
     WebElement MaxPriceOfMobile=driver.findElement(By.xpath("//div[text()='₹30,000']"));
-	System.out.println("HigherPriceMobile Name is: "+HigherPriceProduct.getText());
-	System.out.println("MaxPriceOfMobile is: "+MaxPriceOfMobile.getText());
-	}
+    System.out.println("HigherPriceMobile Name is: "+HigherPriceProduct.getText());ystem.out.println("MaxPriceOfMobile is: "+MaxPriceOfMobile.getText());
+    }
 }
