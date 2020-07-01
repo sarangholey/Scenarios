@@ -20,9 +20,8 @@ public class Assignment3 {
     WebDriver driver=new ChromeDriver();
     driver.get(url);
     driver.manage().window().maximize();
-    Assert.assertEquals(title,driver.getTitle());
     System.out.println("Page title is: "+driver.getTitle());
-    driver.manage().window().maximize();
+    Assert.assertEquals(title,driver.getTitle());
     
     driver.findElement(By.xpath("//button[@class='_2AkmmA _29YdH8']")).click();	
 	
@@ -30,7 +29,6 @@ public class Assignment3 {
     System.out.println("SearchBox is displays: "+SearchBox.isDisplayed());
     SearchBox.sendKeys("samsung mobiles");
     driver.findElement(By.xpath("//button[@class='vh79eN']")).click();
-    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     
     WebElement MinPrice=driver.findElement(By.xpath("//div[@class='_1qKb_B']//select[@class='fPjUPw']"));
     System.out.println("MinPrice is visible: "+MinPrice.isDisplayed());
