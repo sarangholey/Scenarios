@@ -138,7 +138,6 @@ public class PageObjectModel extends Util {
 			String cost=eachProductPrice.get(i).getText().substring(1).replaceAll(",", "");
 			int expectedCost=Integer.parseInt(cost);
 			a1.add(expectedCost);
-			System.out.println(expectedCost);
 			eachProductPrice=getListOfAllElements(list_of_price);
 		}
 		Collections.sort(a1);
@@ -151,10 +150,10 @@ public class PageObjectModel extends Util {
 			int actualCost=Integer.parseInt(cost);
 			String productName=eachProductName.get(i).getText();
 			if(lowestPrice==actualCost) {
-				System.out.println(productName+" is the lowest price price product with price : "+lowestPrice);
+				System.out.println(productName+" is the lowest price product with price : "+lowestPrice);
 			}
 			else if(highestPrice==actualCost) {
-				System.out.println(productName+" is the highest price price product with price : "+highestPrice);
+				System.out.println(productName+" is the highest price product with price : "+highestPrice);
 			}
 			eachProductName=getListOfAllElements(list_of_product);
 			eachProductPrice=getListOfAllElements(list_of_price);
