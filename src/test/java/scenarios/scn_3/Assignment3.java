@@ -1,5 +1,8 @@
 package scenarios.scn_3;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 import org.junit.Assert;
 import org.junit.Test;
@@ -29,6 +32,7 @@ public class Assignment3 {
     System.out.println("SearchBox is displays: "+SearchBox.isDisplayed());
     SearchBox.sendKeys("samsung mobiles");
     driver.findElement(By.xpath("//button[@class='vh79eN']")).click();
+    Thread.sleep(3000);
     
     WebElement MinPrice=driver.findElement(By.xpath("//div[@class='_1qKb_B']//select[@class='fPjUPw']"));
     System.out.println("MinPrice is visible: "+MinPrice.isDisplayed());
@@ -48,21 +52,21 @@ public class Assignment3 {
     System.out.println("SelectedMaxPrice: "+HigherPrice.getText());
     
     Thread.sleep(3000);
-    driver.findElement(By.xpath("//div[text()='Price -- Low to High']")).click();;
-    
-    Thread.sleep(3000);
-    WebElement LowerPriceProduct= driver.findElement(By.xpath("//div[text()='Samsung Galaxy J4 (Gold, 16 GB)']"));
-    WebElement MinPriceOfMobile=driver.findElement(By.xpath("//div[text()='₹10,903']"));
-    System.out.println("LowerPriceMobile Name is: "+LowerPriceProduct.getText());
-    System.out.println("PriceOfMobile is: "+MinPriceOfMobile.getText());
-    
-    Thread.sleep(3000);
-    driver.findElement(By.xpath("//div[text()='Price -- High to Low']")).click();
-    
-    Thread.sleep(3000);
-    WebElement HigherPriceProduct=driver.findElement(By.xpath("//div[text()='Samsung Galaxy A8 Plus (Gold, 64 GB)']"));
-    WebElement MaxPriceOfMobile=driver.findElement(By.xpath("//div[text()='₹30,000']"));
-    System.out.println("HigherPriceMobile Name is: "+HigherPriceProduct.getText());
-    System.out.println("MaxPriceOfMobile is: "+MaxPriceOfMobile.getText());
+    List<WebElement>list=driver.findElements(By.xpath("//div[@class='_1vC4OE _2rQ-NK']"));
+	ArrayList<Integer> Array=new ArrayList<Integer>();
+    for(int i=0;i<list.size();i++) 
+    {
+     String product=list.get(i).getText();   
+     //boolean A=Array.add(product);
+     String remove=product.replace("₹","").replace(",","");
+     int convertprice=Integer.parseInt(remove);
+     System.out.println(convertprice);
+     Array.add(convertprice);
+     Integer max = Collections.max(Array);  
+     System.out.println(max);
     }
-}
+    System.out.println("max"+Collections.max(Array,null));
+    System.out.println("min"+Collections.min(Array,null));
+    }
+   }
+   
