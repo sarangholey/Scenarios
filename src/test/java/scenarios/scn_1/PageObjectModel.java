@@ -37,7 +37,7 @@ public class PageObjectModel extends Util {
 	private By add_to_cart_button= By.id("add-to-cart-button");
 	private By cart_link = By.id("nav-cart");
 	private By cart_product_list=By.xpath("//span[@class='a-size-medium sc-product-title a-text-bold']");
-	private By footer_link=By.xpath("//div[@class='navFooterLine navFooterLinkLine navFooterPadItemLine ']//li//a[@class='nav_a']");
+	private By footer_link=By.xpath("//div[@class='navFooterLine navFooterLinkLine navFooterDescLine']//td[@class='navFooterDescItem']//a[@class='nav_a']");
 
 	public PageObjectModel(WebDriver driver, Scenario scn) {
 		this.scn=scn;
