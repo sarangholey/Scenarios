@@ -207,6 +207,7 @@ public class PageObjectModel extends Util {
 			String getTitle=getDriver().getTitle();
 			System.out.println(getTitle);
 			getDriver().navigate().back();
+			waitMethod(footer_link);
 			list=getListOfAllElements(footer_link);
 		}
 	}
