@@ -58,6 +58,7 @@ public class StepDefScn3 extends TestBase_1{
 	public void validate_min_and_max_price_dropdown_is_visible_or_not_also_fetch_Highest_and_Lowest_price_commodity_from_list_with_their_name() throws InterruptedException {
 		di.getPm().GetTheHighestAndLowestPriceOfCommodity();
 	}
+	
 	@Before
 	public void SetUp(Scenario s) {
 		this.scn = s;

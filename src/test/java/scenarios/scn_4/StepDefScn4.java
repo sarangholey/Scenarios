@@ -69,7 +69,6 @@ public class StepDefScn4 extends TestBase_1{
 		di.getPm().ValidateCartProduct2Sequence(product_2);
 		di.getPm().ValidateCartProduct3Sequence(product_1);
 	}
-
 	@Before
 	public void SetUp(Scenario s) {
 		this.scn = s;

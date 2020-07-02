@@ -210,5 +210,6 @@ public class PageObjectModel extends Util {
 			getDriver().navigate().back();
 			list=getListOfAllElements(footer_link);
 		}
+
 	}
 }

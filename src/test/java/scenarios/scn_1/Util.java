@@ -51,11 +51,11 @@ public class Util {
 		webElement.click();
 	}
 
-	
+
 	public List<WebElement> getListOfWebElements(By by){
 		WebDriverWait wait = new WebDriverWait(driver, 60);
 		WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
 		return element.findElements(by);
 	}
-	
+
 }

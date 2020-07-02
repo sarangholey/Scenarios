@@ -2,6 +2,7 @@
 @tag
 Feature: Scn_3
 
+
   @tag1
   Scenario: Validate product price according to the apply filter
     Given I have browser open and url is navigated and validate the title

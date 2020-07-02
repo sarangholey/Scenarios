@@ -52,7 +52,7 @@ public class StepDefScn2 {
 	public void SetUp(Scenario s) {
 		this.scn = s;
 	}
-
+	
 	@After
 	public void CleanUp(Scenario s) {
 
