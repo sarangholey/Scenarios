@@ -12,12 +12,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Assignment5 {
-	WebDriver driver;
-	String url="https://www.amazon.in/";
-	String title="Online Shopping site in India: Shop Online for Mobiles, Books, Watches, Shoes and More - Amazon.in";
-	@Test
-	public void MethodAssignment5() throws InterruptedException {
-	WebDriver driver=new ChromeDriver();
+    WebDriver driver;
+    String url="https://www.amazon.in/";
+    String title="Online Shopping site in India: Shop Online for Mobiles, Books, Watches, Shoes and More - Amazon.in";
+    @Test
+    public void MethodAssignment5() throws InterruptedException {
+    WebDriver driver=new ChromeDriver();
     driver.get(url);
     driver.manage().window().maximize();
     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
