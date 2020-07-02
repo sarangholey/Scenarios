@@ -57,7 +57,6 @@ public class Assignment3 {
     for(int i=0;i<list.size();i++) 
     {
      String product=list.get(i).getText();   
-     //boolean A=Array.add(product);
      String remove=product.replace("₹","").replace(",","");
      int convertprice=Integer.parseInt(remove);
      System.out.println(convertprice);
