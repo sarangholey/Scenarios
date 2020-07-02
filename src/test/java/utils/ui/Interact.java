@@ -90,8 +90,10 @@ public abstract class Interact {
 	}
 	
 	public Select selectDropdown(By by,String text) {
-		Select value = new Select(getDriver().findElement(by));
-		value.selectByValue(text);;
+		WebDriverWait wait = new WebDriverWait(driver, 60);
+		WebElement element = wait.until(ExpectedConditions.elementToBeClickable(by));
+		Select value = new Select(element.findElement(by));
+		value.selectByValue(text);
 		logger.info("Select Text for element: " + by.toString() + " Text : " + value);
 		return value;
 	}
