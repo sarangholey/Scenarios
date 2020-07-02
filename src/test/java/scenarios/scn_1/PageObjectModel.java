@@ -20,6 +20,7 @@ public class PageObjectModel extends Util {
 	String product_1;
 	String product_2;
 	String product_3;
+	
 	private By search_box=By.name("q");
 	private By search_button=By.xpath("//button[@class='vh79eN']");
 	private By login_pop_up=By.xpath("//button[@class='_2AkmmA _29YdH8']");

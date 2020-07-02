@@ -65,5 +65,4 @@ public class StepDefScn2 {
 		di.getDriver().quit();
 		scn.write("Browser is Closed");
 	}
-
 }

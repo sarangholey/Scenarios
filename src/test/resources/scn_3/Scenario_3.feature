@@ -2,7 +2,7 @@
 @tag
 Feature: Scn_3
 
- @tag1
+  @tag1
   Scenario: Validate product price according to the apply filter
     Given I have browser open and url is navigated and validate the title
     When I Search for product as "samsung mobiles" and also validate the searchbox is visible or not

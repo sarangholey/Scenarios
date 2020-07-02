@@ -50,6 +50,7 @@ public class Util {
 		WebElement element = wait.until(ExpectedConditions.elementToBeClickable(webElement));
 		webElement.click();
 	}
+
 	
 	public List<WebElement> getListOfWebElements(By by){
 		WebDriverWait wait = new WebDriverWait(driver, 60);

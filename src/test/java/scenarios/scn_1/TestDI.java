@@ -25,3 +25,4 @@ public class TestDI {
 		pm=new PageObjectModel(driver,scn);
 	}
 }
+
