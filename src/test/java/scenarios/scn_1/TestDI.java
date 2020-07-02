@@ -24,5 +24,4 @@ public class TestDI {
 	public void GetInstanceOfPageObject(WebDriver driver,Scenario scn) {
 		pm=new PageObjectModel(driver,scn);
 	}
-	
 }

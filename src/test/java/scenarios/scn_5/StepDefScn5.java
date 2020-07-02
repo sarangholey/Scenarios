@@ -28,6 +28,7 @@ public class StepDefScn5 extends TestBase_1{
 	String product_1;
 	String product_2;
 	String product_3;
+	
 	@Given("I have browser open and url is navigated and validate the title")
 	public void i_have_browser_open_and_url_is_navigated_and_validate_the_title() {
 		driver = new ChromeDriver();

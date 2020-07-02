@@ -75,5 +75,4 @@ public class StepDefScn3 extends TestBase_1{
 		di.getDriver().quit();
 		scn.write("Browser is Closed");
 	}
-
 }

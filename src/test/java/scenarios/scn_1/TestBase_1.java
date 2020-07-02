@@ -18,6 +18,5 @@ public class TestBase_1 {
 				System.out.println("File not found exception thrown for config.properties file.");
 				return null;
 			}
-
 		}
 }

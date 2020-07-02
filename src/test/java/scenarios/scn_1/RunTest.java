@@ -8,8 +8,8 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 
-		features="classpath:scn_5",
-		glue="scenarios.scn_5",
+		features="classpath:scn_1",
+		glue="scenarios.scn_1",
 		tags = "",
 		plugin = {"pretty",
 				"html:target/html/",

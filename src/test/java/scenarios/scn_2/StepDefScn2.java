@@ -66,5 +66,4 @@ public class StepDefScn2 {
 		scn.write("Browser is Closed");
 	}
 
-
 }
