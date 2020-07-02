@@ -6,7 +6,7 @@ import java.util.Properties;
 public class TestBase_1 {
 	    
 	    protected String serverUI = LoadProperties().getProperty("url");
-	    
+	    protected String amazon_url = LoadProperties().getProperty("url2");
 		public Properties LoadProperties() {
 
 			try {
@@ -21,4 +21,3 @@ public class TestBase_1 {
 
 		}
 }
-//

@@ -1,14 +1,11 @@
-package scenarios.scn_1;
+package scenarios.scn_5;
 
-import static org.junit.Assert.assertTrue;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
-import org.junit.Assert;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import cucumber.api.Scenario;
@@ -17,38 +14,36 @@ import cucumber.api.java.Before;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import scenarios.scn_1.TestBase_1;
+import scenarios.scn_1.TestDI;
 
-public class StepDefScn1 extends TestBase_1 {
+public class StepDefScn5 extends TestBase_1{
 
 	TestDI di;
-	public StepDefScn1(TestDI di){
+	public StepDefScn5(TestDI di){
 		this.di=di;
 	}
 	WebDriver driver ;
 	Scenario scn;
-	
+	String product_1;
+	String product_2;
+	String product_3;
 	@Given("I have browser open and url is navigated and validate the title")
 	public void i_have_browser_open_and_url_is_navigated_and_validate_the_title() {
 		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(20000, TimeUnit.MILLISECONDS);
 		driver.manage().window().maximize();
-		driver.get(serverUI);
+		driver.get(amazon_url);
 		di.setDriver(driver);
 		di.GetInstanceOfPageObject(driver, scn);
-		di.getPm().ClickOnLoginPopUp();
 		String actual_title=driver.getTitle();
-		di.getPm().ValidateTitle(actual_title);
+		//System.out.println(actual_title);
+		di.getPm().ValidateAmazonTitle(actual_title);
 	}
 
-	@When("I Search for product as {string} and also validate the searchbox is visible or not")
-	public void i_Search_for_product_as_and_validate_the_searchbox_is_visible(String product_name) {
-		di.getPm().SearchProduct(product_name);
-		di.getPm().ValidateSearchBox();
-	}
-
-	@Then("I Fetch all the prices from the first page and make total of all prices and print it on console window")
-	public void make_total_of_all_prices_and_print_it_on_console_window() {
-	di.getPm().TotalCostOfAllProduct();
+	@Then("I click on all link available on footer Section and Fetch it")
+	public void i_click_on_all_link_available_on_footer_Section_and_Fetch_it() {
+		di.getPm().ClickLinkAndFetchTitle();
 	}
 
 	@Before
@@ -68,5 +63,6 @@ public class StepDefScn1 extends TestBase_1 {
 		di.getDriver().quit();
 		scn.write("Browser is Closed");
 	}
+} 
 
-}
+
