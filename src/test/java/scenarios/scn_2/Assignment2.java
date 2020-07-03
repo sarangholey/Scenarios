@@ -36,24 +36,16 @@ public class Assignment2 {
    	Assert.fail("SearchBox is not visible");}
     SearchBox.sendKeys("Philips");
     
-    WebDriverWait wait = new WebDriverWait(driver,30);
-    wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@class='_2ja22P']")));
+    Thread.sleep(3000);
     List<WebElement> Autosuggestion = driver.findElements(By.xpath("//a[@class='_2ja22P']"));	
     System.out.println("Total number of Autosuggestion Product: "+Autosuggestion.size());
-    int i=0;
-    while(i<Autosuggestion.size())
+    
+    for(int i=0;i<Autosuggestion.size();i++)
     {
-	String product=Autosuggestion.get(i).getText();
-	boolean display= Autosuggestion.get(i).isDisplayed();
-	System.out.println(display);
-	
-	if(product.contains("philips")) {
-    System.out.println("Product start with small letter: "+product);
-	}
-	if(product.contains("Philips")){
-	System.out.println("Product Start with Capital Letter: "+product);
-	}
-	i++;
+    Autosuggestion=driver.findElements(By.xpath("//a[@class='_2ja22P']"));
+    String Product=Autosuggestion.get(i).getText();
+	System.out.println(Product);	
+	Assert.assertTrue("Autosuggection is contain philips: ",Product.contains("philips"));
     }
   }
 }
