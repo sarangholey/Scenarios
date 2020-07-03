@@ -52,7 +52,7 @@ public class Assignment4 {
     Thread.sleep(3000);
     driver.findElement(By.xpath("//a[@id='nav-cart']")).click();
     List<WebElement> Count= driver.findElements(By.xpath("//span[@class='a-size-medium sc-product-title a-text-bold']"));
-    for(int j=0;j<2;j++) {
+    for(int j=0;j<3;j++) {
     Count= driver.findElements(By.xpath("//span[@class='a-size-medium sc-product-title a-text-bold']"));
     String CardProduct= Count.get(j).getText();
     System.out.println("CardProduct: "+CardProduct);
