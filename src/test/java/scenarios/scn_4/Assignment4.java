@@ -1,6 +1,4 @@
 package scenarios.scn_4;
-
-
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -44,16 +42,24 @@ public class Assignment4 {
     String childwin= it.next();
 	driver.switchTo().window(childwin);
 	
-    driver.findElement(By.xpath("//input[@id='add-to-cart-button']")).isDisplayed()
+    driver.findElement(By.xpath("//input[@id='add-to-cart-button']")).isDisplayed();
     driver.findElement(By.xpath("//input[@id='add-to-cart-button']")).click();
     Thread.sleep(3000);
     driver.close();
     driver.switchTo().window(parentwin);
     driver.navigate().refresh();
 	}
-    driver.findElement(By.xpath("//span[@class='nav-cart-icon nav-sprite']")).click();
+    Thread.sleep(3000);
+    driver.findElement(By.xpath("//a[@id='nav-cart']")).click();
+    List<WebElement> Count= driver.findElements(By.xpath("//span[@class='a-size-medium sc-product-title a-text-bold']"));
+    for(int j=0;j<2;j++) {
+    Count= driver.findElements(By.xpath("//span[@class='a-size-medium sc-product-title a-text-bold']"));
+    String CardProduct= Count.get(j).getText();
+    System.out.println("CardProduct: "+CardProduct);
+    }
+    Thread.sleep(3000);
     String details=driver.findElement(By.xpath("//div[@data-name='Subtotals']")).getText();
-	System.out.println("Product details: "+details);
-	}
+    System.out.println("Product details: "+details);    
+    }
 }
 
