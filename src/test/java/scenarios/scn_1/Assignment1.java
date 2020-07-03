@@ -26,8 +26,13 @@ public class Assignment1 {
      
 	driver.findElement(By.xpath("//button[@class='_2AkmmA _29YdH8']")).click();	
    
-    WebElement SearchBox =driver.findElement(By.xpath("//input[@class='LM6RPg']"));
-    System.out.println("SearchBox is displays: "+SearchBox.isDisplayed());
+    WebElement SearchBox =driver.findElement(By.xpath("//input[@class='LM6RPg']"));    
+    boolean v=SearchBox.isDisplayed();
+	if (v) {
+	Assert.assertTrue("SearchBox is visible",true);}
+	else {
+	Assert.fail("SearchBox is not visible");}
+	
     SearchBox.sendKeys("OnePlus");
     driver.findElement(By.xpath("//button[@class='vh79eN']")).click();
     List<WebElement>Prices=driver.findElements(By.xpath("//div[@class='_1HmYoV _35HD7C']//div[@class='_1vC4OE']"));
@@ -41,10 +46,9 @@ public class Assignment1 {
     	System.out.println("ProductCost: "+Name);
     	int convert=Integer.parseInt(Name);
         add=add+convert;	
-        System.out.println("TotalCost: "+add);
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);				
         i++;
     }
+    System.out.println("TotalCost: "+add);
   }
 }
                                           

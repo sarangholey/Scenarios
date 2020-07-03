@@ -29,11 +29,15 @@ public class Assignment3 {
     driver.findElement(By.xpath("//button[@class='_2AkmmA _29YdH8']")).click();	
 	
     WebElement SearchBox =driver.findElement(By.xpath("//input[@class='LM6RPg']"));
-    System.out.println("SearchBox is displays: "+SearchBox.isDisplayed());
+    boolean v=SearchBox.isDisplayed();
+   	if (v) {
+   	Assert.assertTrue("SearchBox is visible",true);}
+   	else {
+   	Assert.fail("SearchBox is not visible");}
     SearchBox.sendKeys("samsung mobiles");
+    
     driver.findElement(By.xpath("//button[@class='vh79eN']")).click();
     Thread.sleep(3000);
-    
     WebElement MinPrice=driver.findElement(By.xpath("//div[@class='_1qKb_B']//select[@class='fPjUPw']"));
     System.out.println("MinPrice is visible: "+MinPrice.isDisplayed());
     WebElement MaxPrice=driver.findElement(By.xpath("//div[@class='_1YoBfV']//select[@class='fPjUPw']"));

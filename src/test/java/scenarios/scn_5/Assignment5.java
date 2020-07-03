@@ -24,18 +24,17 @@ public class Assignment5 {
     System.out.println("Page title is: "+driver.getTitle());
     Assert.assertEquals(title,driver.getTitle());
     
-    WebElement footer=driver.findElement(By.xpath("//div[@id='navFooter']"));
-    int size=footer.findElements(By.tagName("a")).size();
-    System.out.println("links in footer"+size);
-    List<WebElement> footerlinks = footer.findElements(By.tagName("a"));
+    List<WebElement> footer=driver.findElements(By.xpath("//td/a[@class='nav_a']"));
+    int size=footer.size();
+    System.out.println("links in footer: "+size);
     for(int i=0;i<size;i++)
     {
-        footer=driver.findElement(By.xpath("//div[@id='navFooter']"));
-        footer.findElements(By.tagName("a")).get(i).click();
-    	Thread.sleep(5000);
+        footer=driver.findElements(By.xpath("//td/a[@class='nav_a']"));
+        footer.get(i).click();
+    	Thread.sleep(3000);
     	System.out.println(driver.getTitle());
     	driver.navigate().back();
-    	Thread.sleep(4000);
+    	Thread.sleep(3000);
     }
     
 }

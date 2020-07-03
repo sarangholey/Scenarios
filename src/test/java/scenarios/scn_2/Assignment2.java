@@ -29,7 +29,11 @@ public class Assignment2 {
 	driver.findElement(By.xpath("//button[@class='_2AkmmA _29YdH8']")).click();	
 	
     WebElement SearchBox =driver.findElement(By.xpath("//input[@class='LM6RPg']"));
-    System.out.println("SearchBox is displays: "+SearchBox.isDisplayed());
+    boolean v=SearchBox.isDisplayed();
+   	if (v) {
+   	Assert.assertTrue("SearchBox is visible",true);}
+   	else {
+   	Assert.fail("SearchBox is not visible");}
     SearchBox.sendKeys("Philips");
     
     WebDriverWait wait = new WebDriverWait(driver,30);
