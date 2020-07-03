@@ -49,7 +49,7 @@ public class AjaxHandling {
 		List<WebElement> list = driver.findElements(By.xpath("//a[@class='_2ja22P']"));
 		System.out.println("Elements in Drop Down List: " + list.size());
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		for (int i = 0; i < list.size(); i++) {
+		for (int i = 0; i <= list.size(); i++) {
 			String product = list.get(i).getText();
 			boolean display = list.get(i).isDisplayed();
 			System.out.println(display);

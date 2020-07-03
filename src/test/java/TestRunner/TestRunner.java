@@ -8,7 +8,7 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 
-		features="classpath:scn_2/ajaxHandling.feature",
+		features="classpath:scn_3",
 		glue="scenarios",
 		tags="",
 		plugin = {"pretty",
