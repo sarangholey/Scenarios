@@ -24,6 +24,7 @@ public class ScenarioObjects_1 extends Interact  {
 	private By login_cancel_button=By.xpath("//button[text()='✕']");
 	private By price_of_all_product=By.xpath("//div[@class='_1vC4OE']");
 	
+	
 	public ScenarioObjects_1(WebDriver driver, Scenario s) 
 	{
 		setDriver(driver);
@@ -32,16 +33,10 @@ public class ScenarioObjects_1 extends Interact  {
 	
 	public void CancelButton()
 	{
-		logger.info("hi4");
 		clickElement(login_cancel_button);
 		logger.info("Clicked on Cancel Button");
 	}
-	/*public String get_text()
-	{
-		String textValue=getText(get_text_value);
-		logger.info("Cart Product Value:"+textValue);		
-		return textValue;	 
-	}*/
+	
 	public void validateFilpkartTitle()
 	{
 		Assert.assertTrue(validateElementIsDisplayed(filpkart_title));		
@@ -79,5 +74,12 @@ public class ScenarioObjects_1 extends Interact  {
 		}
 		logger.info("All product some:"+Price);
 	}
+	
+	public void testAjaxHandling()
+	{
+		
+	}
+	
+	
 
 }
