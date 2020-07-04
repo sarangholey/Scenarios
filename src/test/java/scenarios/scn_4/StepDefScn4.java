@@ -42,32 +42,14 @@ public class StepDefScn4 extends TestBase_1{
 
 	@When("I add few product in cart")
 	public void i_add_few_product_in_cart() {
-		//remain
-		di.getDriver().findElement(By.id("twotabsearchtextbox")).sendKeys("iphone");
-		di.getDriver().findElement(By.xpath("//input[@class='nav-input']")).click();
-		//
-		product_1=di.getPm().ClickOnProductLink(1);
-		di.getDriver().switchTo().window((String)di.getDriver().getWindowHandles().toArray()[1]);
-		di.getPm().AddProductToCart();
-		di.getDriver().close();
-		di.getDriver().switchTo().window((String)di.getDriver().getWindowHandles().toArray()[0]);
-		product_2=di.getPm().ClickOnProductLink(2);
-		di.getDriver().switchTo().window((String)di.getDriver().getWindowHandles().toArray()[1]);
-		di.getPm().AddProductToCart();
-		di.getDriver().close();
-		di.getDriver().switchTo().window((String)di.getDriver().getWindowHandles().toArray()[0]);
-		product_3=di.getPm().ClickOnProductLink(4);
-		di.getDriver().switchTo().window((String)di.getDriver().getWindowHandles().toArray()[1]);
-		di.getPm().AddProductToCart();
+		di.getPm().SearchProductInAmazon("iphone");;		
+		di.getPm().SelectAndAddProductToCart();
 	}
 
 	@Then("Validate sequence of product is same")
 	public void validate_sequence_of_product_is_same() {
 		di.getPm().CartMenu();
-		di.getPm().GetCartProductList();
-		di.getPm().ValidateCartProduct1Sequence(product_3);
-		di.getPm().ValidateCartProduct2Sequence(product_2);
-		di.getPm().ValidateCartProduct3Sequence(product_1);
+		di.getPm().ValidateCartProductList();
 	}
 	@Before
 	public void SetUp(Scenario s) {
