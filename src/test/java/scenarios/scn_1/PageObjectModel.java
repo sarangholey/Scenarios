@@ -110,7 +110,7 @@ public class PageObjectModel extends Util {
 		clickElement(select_min_cost);
 	}
 
-	public void SelectMaxCost() {
+	public void SelectMaxCost() throws InterruptedException{
 		Thread.sleep(2000);
 		clickElement(select_max_cost);
 	}
