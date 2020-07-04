@@ -5,6 +5,9 @@ import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -31,14 +34,23 @@ public class HandlingStaleElmnt {
 
 	@When("I go the footer Section click on the each link fetch the title of the page and print on Console, go back on the main page and do same step for all the links")
 	public void i_go_the_footer_Section_click_on_the_each_link_fetch_the_title_of_the_page_and_print_on_Console_go_back_on_the_main_page_and_do_same_step_for_all_the_links() {
-		List<WebElement> footerElements = driver.findElements(By.xpath("//td[@class='navFooterDescItem']"));
-		footerElements.size();
-		for (int i = 0; i<footerElements.size(); i++) {
-			footerElements = driver.findElements(By.xpath("//td[@class='navFooterDescItem']"));
-			footerElements.get(i);
-			new WebDriverWait(driver, 30).until(ExpectedConditions.elementToBeClickable(By.xpath("//td[@class='navFooterDescItem']"))).click();
+
+		List<WebElement> footerElements = driver.findElements(By.xpath(
+				"//div[@class='navFooterLine navFooterLinkLine navFooterDescLine']//td[@class='navFooterDescItem']//a[@class='nav_a']"));
+		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		System.out.println("Element Size is:" + footerElements.size());
+		for (int i = 0; i < footerElements.size(); i++) {
+
+			driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+			footerElements = driver.findElements(By.xpath(
+					"//div[@class='navFooterLine navFooterLinkLine navFooterDescLine']//td[@class='navFooterDescItem']//a[@class='nav_a']"));
+
+			new WebDriverWait(driver, 30).until(ExpectedConditions.elementToBeClickable(footerElements.get(i))).click();
+
+			driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 			System.out.println(driver.getTitle());
 			driver.navigate().back();
+
 		}
 	}
 
