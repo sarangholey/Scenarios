@@ -111,6 +111,7 @@ public class PageObjectModel extends Util {
 	}
 
 	public void SelectMaxCost() {
+		Thread.sleep(2000);
 		clickElement(select_max_cost);
 	}
 
@@ -168,7 +169,7 @@ public class PageObjectModel extends Util {
 		assertEquals(expected_title, actual_title);
 		scn.write("Title is validated");
 	}
-
+	
 	public void SelectAndAddProductToCart() {
 			List<WebElement> list = getListOfWebElements(product_list);
 			a1=new ArrayList<String>();
@@ -182,13 +183,6 @@ public class PageObjectModel extends Util {
 				getDriver().switchTo().window((String)getDriver().getWindowHandles().toArray()[0]);
 			}
 		}
-	
-	public String ClickOnProductLink(int productIndex) {
-		List<WebElement> list = getListOfWebElements(product_list);
-		clickElement(list.get(productIndex));
-		scn.write("Clicked on Product id: " + productIndex + " Product Link");
-		return list.get(productIndex).getText();
-	}
 
 	public void AddProductToCart(){
 		clickElement(add_to_cart_button);
@@ -206,25 +200,6 @@ public class PageObjectModel extends Util {
 			a2.add(cartProductList);
 		}
 		assertEquals("Sequence is validate", a1, a2);
-	}
-	
-	public void GetCartProductList() {
-		List<WebElement> list = getListOfWebElements(cart_product_list);
-		product_1=list.get(0).getText();
-		product_2=list.get(1).getText();
-		product_3=list.get(2).getText();		
-	}
-
-	public void ValidateCartProduct1Sequence(String productName) {
-		assertEquals(productName, product_1);
-	}
-
-	public void ValidateCartProduct2Sequence(String productName) {
-		assertEquals(productName, product_2);
-	}
-	public void ValidateCartProduct3Sequence(String productName) {
-		assertEquals(productName, product_3);
-		System.out.println(" Sequence of products is validate");
 	}
 
 	public void ClickLinkAndFetchTitle() {
