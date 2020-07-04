@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class Scenario1 {
@@ -22,6 +23,12 @@ public class Scenario1 {
 		driver.manage().window().maximize();
 
 			driver.manage().timeouts().implicitlyWait(10000, TimeUnit.SECONDS);
+			
+			String Expected_ttle="Online Shopping Site for Mobiles, Electronics, Furniture, Grocery, Lifestyle, Books &amp; More. Best Offers!";
+			
+		    System.out.println("the page title is : "+driver.getTitle());
+		    Assert.assertEquals(Expected_ttle,driver.getTitle());
+
 
 			WebElement searchBox=driver.findElement(By.xpath("//input[@class='LM6RPg']"));
 			searchBox.clear();
@@ -30,7 +37,7 @@ public class Scenario1 {
 
 			searchBox.sendKeys("oneplus");
 			
-			driver.findElement(By.xpath("//*[@id=\"container\"]/div/div[1]/div[1]/div[2]/div[2]/form/div/button")).click();
+			driver.findElement(By.xpath("//button[@class='vh79eN']")).click();
 			
 			List<WebElement> allprice = driver.findElements(By.xpath("//div[@class='_1vC4OE']"));
 			

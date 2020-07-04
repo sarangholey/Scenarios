@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class AutoSugestList {
@@ -23,10 +24,13 @@ public class AutoSugestList {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10000, TimeUnit.SECONDS);
 		
-		
+		String Expected_ttle="Online Shopping Site for Mobiles, Electronics, Furniture, Grocery, Lifestyle, Books &amp; More. Best Offers!";
+				
+	    System.out.println("the page title is : "+driver.getTitle());
+	    Assert.assertEquals(Expected_ttle,driver.getTitle());
 
 	WebElement searchBox=driver.findElement(By.xpath("//input[@class='LM6RPg']"));
-	searchBox.clear();
+	
 	
 	System.out.println("dispaly search Box:"+searchBox.isDisplayed());
 
