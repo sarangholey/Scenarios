@@ -90,14 +90,12 @@ public class Interact {
 	}
 	
 	public void switchToSecondWindowTab() {
-		/*String [] handles = (String[]) driver.getWindowHandles().toArray();
-		driver.switchTo().window(handles[1]);*/
-		//String winHandleBefore =  getDriver().getWindowHandle();
 		for (String handle1 : getDriver().getWindowHandles()) {
 			 logger.info(handle1);
 			 getDriver().switchTo().window(handle1);
+			 logger.info("Browser Switched to second window tab.");
         }
-		logger.info("Browser Switched to second window tab.");
+		
 	}
 	
 	public void switchToDefaultWindowTab() {
@@ -137,7 +135,6 @@ public class Interact {
 		WebDriverWait wait = new WebDriverWait(driver, 60);
 		WebElement element = wait.until(ExpectedConditions.elementToBeClickable(by));
 		element.sendKeys(enter);
-		//logger.info("Element is Set with text as: " + text + ". Element Description: " + by.toString());
 		return element;
 	}
 	
