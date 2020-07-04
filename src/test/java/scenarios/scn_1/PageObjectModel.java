@@ -17,12 +17,12 @@ import cucumber.api.Scenario;
 public class PageObjectModel extends Util {
 
 	Scenario scn;
-	String product_1;
-	String product_2;
-	String product_3;
+	ArrayList<String> a1;
 	
 	private By search_box=By.name("q");
 	private By search_button=By.xpath("//button[@class='vh79eN']");
+	private By amazon_search_box=By.id("twotabsearchtextbox");
+	private By amazon_search_button=By.xpath("//input[@class='nav-input']");
 	private By login_pop_up=By.xpath("//button[@class='_2AkmmA _29YdH8']");
 	private By mobile_cost=By.xpath("//div[@class='_1HmYoV hCUpcT']//div[@class='_1vC4OE']");
 	private By autosuggestion_list=By.xpath("//li[@class='_1va75j']");
@@ -56,6 +56,10 @@ public class PageObjectModel extends Util {
 	public void SearchProduct(String product_name) {
 		setElement(search_box, product_name);
 		clickElement(search_button);
+	}
+	public void SearchProductInAmazon(String product_name) {
+		setElement(amazon_search_box, product_name);
+		clickElement(amazon_search_button);
 	}
 
 	public void SetProductInSearchBox(String productName) {
@@ -144,7 +148,6 @@ public class PageObjectModel extends Util {
 		int lowestPrice=a1.get(0);
 		int highestPrice=a1.get(a1.size()-1);
 		List<WebElement> eachProductName=getListOfAllElements(list_of_product);
-		clickElement(low_high_price_link);
 		for(int i=0;i<eachProductName.size();i++) {
 			String cost=eachProductPrice.get(i).getText().substring(1).replaceAll(",", "");
 			int actualCost=Integer.parseInt(cost);
@@ -166,6 +169,20 @@ public class PageObjectModel extends Util {
 		scn.write("Title is validated");
 	}
 
+	public void SelectAndAddProductToCart() {
+			List<WebElement> list = getListOfWebElements(product_list);
+			a1=new ArrayList<String>();
+			for(int i=0;i<3;i++) {
+				clickElement(list.get(i));
+				String productAdded=list.get(i).getText();
+				a1.add(productAdded);
+				getDriver().switchTo().window((String)getDriver().getWindowHandles().toArray()[1]);
+				AddProductToCart();
+				getDriver().close();
+				getDriver().switchTo().window((String)getDriver().getWindowHandles().toArray()[0]);
+			}
+		}
+	
 	public String ClickOnProductLink(int productIndex) {
 		List<WebElement> list = getListOfWebElements(product_list);
 		clickElement(list.get(productIndex));
@@ -180,7 +197,17 @@ public class PageObjectModel extends Util {
 	public void CartMenu()	{
 		clickElement(cart_link);
 	}
-
+	
+       public void ValidateCartProductList() {
+		List<WebElement> list = getListOfWebElements(cart_product_list);
+		ArrayList<String> a2=new ArrayList<String>();
+		for(int i=2;i>=0;i--) {
+			String cartProductList=list.get(i).getText();
+			a2.add(cartProductList);
+		}
+		assertEquals("Sequence is validate", a1, a2);
+	}
+	
 	public void GetCartProductList() {
 		List<WebElement> list = getListOfWebElements(cart_product_list);
 		product_1=list.get(0).getText();
